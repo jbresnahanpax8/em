@@ -144,6 +144,15 @@ an event directly.}}
      it does NOT count: reactions read views, not events. If the honest answer is "nothing
      reads it", that's a question for the business, not a field to leave blank. -->
 
+> **Envelope** — this event adheres to the standard event envelope, which carries the
+> occurrence and ingest timestamps and the actor identity as metadata.
+> {{cite your platform's canonical event envelope doc/decision record here}}
+> Only domain fields are listed below.
+
+<!-- Keep the Envelope line and list domain facts only — never redeclare an envelope-carried
+     field as a row below. Cite your platform's canonical envelope decision record (e.g. an
+     ADR) for the exact field list and rationale. -->
+
 | Field | Type | Immutable Fact? | Source / Notes |
 |-------|------|-----------------|----------------|
 | {{field}} | {{Type}} | {{yes/no}} | {{where the value comes from}} |

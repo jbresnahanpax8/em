@@ -144,14 +144,17 @@ an event directly.}}
      it does NOT count: reactions read views, not events. If the honest answer is "nothing
      reads it", that's a question for the business, not a field to leave blank. -->
 
-> **Envelope** — this event adheres to the standard event envelope, which carries the
-> occurrence and ingest timestamps and the actor identity as metadata.
-> {{cite your platform's canonical event envelope doc/decision record here}}
-> Only domain fields are listed below.
+> **Envelope** — this event adheres to the standard event envelope: {{which fields, per your
+> platform's own decision — e.g. occurrence/ingest timestamps, actor identity — are carried
+> as envelope metadata rather than event payload}}. See {{your platform's canonical event
+> envelope doc/decision record}} for what's settled and what's still open. Only domain fields
+> are listed below.
 
 <!-- Keep the Envelope line and list domain facts only — never redeclare an envelope-carried
-     field as a row below. Cite your platform's canonical envelope decision record (e.g. an
-     ADR) for the exact field list and rationale. -->
+     field as a row below. Which fields the envelope actually carries (timestamps? actor
+     identity? both? neither, still open?) is your platform's own decision, not this
+     template's — fill in the placeholder above from your own canonical envelope doc/ADR,
+     and don't assert more than that doc has actually settled. -->
 
 | Field | Type | Immutable Fact? | Source / Notes |
 |-------|------|-----------------|----------------|

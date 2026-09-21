@@ -115,7 +115,13 @@ For each slice:
    anything unresolved rather than guessing. If the slice lives in an existing codebase, Grep/Read
    adjacent real sources (OpenAPI specs, DB migrations, existing DTOs/event classes in sibling
    contexts) before finalizing field names/types or invariants — don't guess a shape that's
-   already defined elsewhere.
+   already defined elsewhere. Before finalizing a new invariant, also check sibling slices
+   **within this model's bounded context** — never a different `.em` model/domain — in the same
+   swimlane/verb family (e.g. other `Archive*`/`Create*` state-changes across different
+   aggregates, all still inside this one model) for an analogous rule already decided there —
+   adopt it, adapt it, or explicitly record why this slice's case differs, rather than leaving
+   the same family of rule to be invented independently per aggregate and found inconsistent
+   only by chance later.
 2. **First-time authoring:** scaffold the doc mechanically rather than hand-writing the
    frontmatter — `em slice new "<slice name>" --pattern <state-change|state-view|automation|
    translation> --swimlane "<Persona> → <Context>" --wire <model>.em` writes `slices/<slice-name>.md`

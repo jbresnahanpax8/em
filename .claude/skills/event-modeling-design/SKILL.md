@@ -121,7 +121,13 @@ For each slice:
    aggregates, all still inside this one model) for an analogous rule already decided there —
    adopt it, adapt it, or explicitly record why this slice's case differs, rather than leaving
    the same family of rule to be invented independently per aggregate and found inconsistent
-   only by chance later.
+   only by chance later. **"Adopt" means giving this slice its own independent copy of the rule,
+   in its own doc** — a plain property check (most invariants) duplicates cleanly across slices
+   and never warrants a shared validator or a shared domain resource just because the same check
+   appears more than once. The one exception: if the matching rule could legitimately differ by
+   subject or tenant, or change over time under its own versioned, approved transitions — a real
+   configurable policy, not a fixed structural fact — consolidating it into one governed resource
+   is the right call instead of duplicating.
 2. **First-time authoring:** scaffold the doc mechanically rather than hand-writing the
    frontmatter — `em slice new "<slice name>" --pattern <state-change|state-view|automation|
    translation> --swimlane "<Persona> → <Context>" --wire <model>.em` writes `slices/<slice-name>.md`
